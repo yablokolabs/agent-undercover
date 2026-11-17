@@ -1,0 +1,58 @@
+{
+  "brand": "Agent Undercover",
+  "networks": [
+    {
+      "name": "case_explainer",
+      "front_man": "case_explainer",
+      "hocon": "./case_explainer.network.json",
+      "description": "Explains a sanitized Agent Undercover case file and separates observed evidence from assistant promises.",
+      "tags": ["agentified-website", "undercover", "case-file"],
+      "sample_queries": [
+        "Explain this sanitized case file and what its result does not establish.",
+        "Which recorded events support the outcome?"
+      ]
+    }
+  ],
+  "llm_router": {
+    "base_url": "browser://mock",
+    "mock": true,
+    "byok_router": "https://router.huggingface.co/v1"
+  },
+  "allowed_peers": [],
+  "peer_policy": {
+    "mode": "open",
+    "deny_origins": [],
+    "note": "Public report explanations may be loaded by another caller after its own per-origin consent. No private oracle or provider key is published here."
+  },
+  "agent_mcp": {
+    "protocol": "nsdeploy-agent-mcp/v1",
+    "network": "case_explainer",
+    "front_man": "case_explainer",
+    "available": false,
+    "reason": "Static workbench; no MCP facade is implemented."
+  },
+  "theme": {
+    "primary": "#0f766e"
+  },
+  "linking": {
+    "protocol": "nsdeploy-link/v1",
+    "exports": [
+      {
+        "network": "case_explainer",
+        "front_man": "case_explainer",
+        "aliases": ["case_explainer", "report_explainer"],
+        "url": "case_explainer"
+      }
+    ],
+    "imports": [],
+    "link_updates": { "mode": "browser-local" }
+  },
+  "deployment": {
+    "mode": "static",
+    "self_contained_runtime": true,
+    "browser_mock": true,
+    "direct_byok": true,
+    "direct_mcp_requires_cors": true,
+    "public_mcp_facade": false
+  }
+}
