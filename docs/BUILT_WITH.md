@@ -16,6 +16,6 @@ Shipped in this repository:
 - Remotion 4.0.534 with React 18.3 and Fontsource fonts for the silent demo cut; the app itself uses React 19
 - An OpenAI-compatible BYOK client path, with the Hugging Face Router as the default suggested route
 
-The live-model path is implemented but not proven in this build because the default route failed browser CORS preflight. Fixture mode is deterministic and labeled.
+The live-model path is implemented but not proven in this build: a headed browser passes the default route's preflight and the router answers HTTP 401 for a placeholder key, but no provider key was used, so no completion is claimed. Fixture mode is deterministic and labeled.
 
-Not used and not claimed: Otari, NANDA discovery, A2A, MCP, WebMCP, production hosting. Add a technology only after it is actually exercised.
+Not used and not claimed: Otari, NANDA discovery, A2A, MCP or WebMCP. Add a technology only after it is actually exercised.
