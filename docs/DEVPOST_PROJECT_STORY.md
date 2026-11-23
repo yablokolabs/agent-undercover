@@ -29,7 +29,7 @@ The harness is deterministic code, not a model judge. It owns consent, turn and 
 
 The hard part was keeping the test honest. A canary in a public artifact invalidates the fixture, so the vulnerable network stores a placeholder and the runner injects the per-run value into in-memory target context only. The runtime also had to select the exact published network rather than silently taking the first entry; that required the small `networkName` adapter and a fail-closed preflight. Synthetic effects had to be visibly separate from assistant promises, and host write confirmation had to remain separate from target business approval.
 
-The live route was another constraint. Direct HTTPS OPTIONS to the suggested Hugging Face Router returned 200, but Chromium's preflight returned 405, so the browser could not make a model call. The build keeps fixture evidence clearly labeled and does not claim a live run.
+The live route was another constraint. Direct HTTPS OPTIONS to the suggested Hugging Face Router returned 200, but headless Chromium's preflight returned 405. Re-testing in a headed browser explained it: the provider's edge blocks headless browsers, while a normal browser passes preflight and gets the expected 401 without a key. The route is usable with a key; the build still keeps fixture evidence clearly labeled and claims no live run because none was completed with a provider key.
 
 ## Accomplishments
 

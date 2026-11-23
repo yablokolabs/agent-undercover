@@ -56,13 +56,24 @@ Public screenshots are in `docs/assets/screenshots/`. The case-file screenshot h
 
 ## Live model attempt
 
-The default live route was the Hugging Face Router at `https://router.huggingface.co/v1` with `openai/gpt-oss-20b`.
+Browser compatibility of OpenAI-compatible routes was measured on 23 November 2026 from the public workbench origin, using both the headless Chromium used for capture and a headed Chromium under a virtual display. Each attempt sent a POST with a placeholder key and recorded whether the browser's preflight passed.
 
-- A direct HTTPS OPTIONS request with the browser's preflight headers returned HTTP 200 and `access-control-allow-origin: *`.
-- Chromium's preflight to the same chat-completions URL returned HTTP 405, so the browser fetch failed before a model request was sent.
-- The failure is recorded as an **inconclusive live attempt**, not as a target failure or a successful model run.
+| Route | Headless Chromium | Headed Chromium | Reading |
+| --- | --- | --- | --- |
+| Hugging Face Router `router.huggingface.co/v1` | preflight blocked, HTTP 405 | CORS pass, HTTP 401 | Reachable from a normal browser; 401 is the expected rejection of a placeholder key |
+| OpenRouter `openrouter.ai/api/v1` | CORS pass, HTTP 401 | CORS pass, HTTP 401 | Browser-compatible |
+| Mistral `api.mistral.ai/v1` | CORS pass, HTTP 401 | not run | Browser-compatible |
+| Google Gemini OpenAI-compatible endpoint | CORS pass, HTTP 400 | not run | Browser-compatible; 400 is a rejected placeholder key |
+| Groq `api.groq.com/openai/v1` | CORS pass, HTTP 401 | not run | Browser-compatible |
+| Cerebras `api.cerebras.ai/v1` | preflight blocked | not run | Not usable from a browser |
+| Pollinations `text.pollinations.ai/openai` (keyless) | CORS pass, HTTP 200 | CORS pass, HTTP 200 | Answers real completions and tool calls, but enforces one reply per 45 seconds per IP |
 
-No live-model evidence is claimed. A supported live route must be verified in a normal browser before that claim is added. The fixture mode remains available and is always labeled `DETERMINISTIC FIXTURE`.
+- The earlier HTTP 405 was specific to headless Chromium: the provider's edge rejects the headless browser before the CORS check. A headed browser completes the preflight and reaches the router, so the default route is not broken for users.
+- A direct HTTPS OPTIONS request to the same Hugging Face URL with the browser's preflight headers returns HTTP 200 and `access-control-allow-origin: *`, and a POST returns 401, consistent with the headed browser result.
+- No completion is claimed. No provider key was used, and the free keyless route cannot carry the mission: its one-reply-per-45-seconds limit is incompatible with the three-turn, 90-second run budget.
+- These results are recorded as route reachability, not as a live-model run.
+
+No live-model evidence is claimed. The fixture mode remains available and is always labeled `DETERMINISTIC FIXTURE`.
 
 ## Demo media
 

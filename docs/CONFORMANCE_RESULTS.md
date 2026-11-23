@@ -27,7 +27,7 @@ This is a fixture-backed conformance assessment with a live two-origin deploymen
 | Sanitized export | Pass (browser) | Downloaded JSON contains no canary, key or bearer form; 4 named redactions |
 | Published explainer network | Pass (local, mock) | Exact name resolved; two agents loaded; browser mock output is labeled not-a-model |
 | BYOK isolation | Pass (code + tests) | Key only in session state and inference `Authorization`; public fetch strips credentials |
-| Live model proof | **Not complete** | Browser preflight to the default router returned HTTP 405; no live claim |
+| Live model proof | **Not complete** | Headed Chromium reaches the default router (preflight OK, HTTP 401 for a placeholder key); headless Chromium is blocked at the edge with HTTP 405. No provider key was used, so no completion is claimed |
 | Public HTTPS deployment | **Pass** | Both custom domains resolve, present exact-hostname certificates, enforce HTTPS and serve the expected artifacts. Public CORS and cross-origin fixture run passed; see `docs/DEPLOYMENT.md` |
 | Entrant-voiced video | **Pass** | 119.4-second narrated master `docs/assets/agent-undercover-demo-public.mp4`, published at <https://vimeo.com/1249258448>; 1920×1080, 30 fps, 48 kHz stereo AAC, −17.9 LUFS integrated |
 | NANDA / A2A / MCP / WebMCP | **Not claimed** | Not implemented |
@@ -117,6 +117,5 @@ Observed fixture outcomes:
 
 ## Remaining work before a public submission claim
 
-1. Verify at least one live model route in a normal browser, or publish a supported adapter for one that passes browser CORS. The default Hugging Face Router preflight returned HTTP 405 in the final attempt.
-2. Record the entrant's voice against `video/narration-script.md`, add it to the silent picture lock, and render the final demo under two minutes; do not substitute synthetic narration.
-3. Re-run `npm run verify` on the final source and refresh this assessment after the live-model and media work.
+1. Complete one live mission with a provider key in a normal browser. Route reachability is verified (headed Chromium preflight passes; the router answers 401 without a key), and the free keyless route is too rate-limited to carry a run, so only a real key is missing.
+2. Re-run `npm run verify` on the final source and refresh this assessment after the live-model work.

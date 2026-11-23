@@ -6,7 +6,7 @@ The workbench accepts a provider key in a masked session field. The key is held 
 
 The key is attached only to the selected inference endpoint as an `Authorization: Bearer` header. Public manifest, network and runtime fetches use a separate exact-origin fetch that strips `authorization`, `cookie` and `proxy-authorization`, and refuses redirects.
 
-The default suggested route is the Hugging Face Router (`https://router.huggingface.co/v1`) with `openai/gpt-oss-20b`. This route is not proven in a browser in this build: a direct OPTIONS request returned 200, but Chromium's preflight returned 405. Do not claim a live run until a normal browser completes one.
+The default suggested route is the Hugging Face Router (`https://router.huggingface.co/v1`) with `openai/gpt-oss-20b`. A headed Chromium browser reaches it: the preflight passes and the router answers HTTP 401 for a placeholder key. Headless Chromium is blocked at the provider's edge with HTTP 405, so capture and CI browsers cannot use this route. No live completion is claimed in this build because no provider key was used.
 
 ## Contact
 

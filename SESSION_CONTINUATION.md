@@ -21,7 +21,7 @@ The local fixture product is built and verified:
 
 ## Not complete
 
-- A successful live-model run. The default Hugging Face Router preflight returned HTTP 405 in the final browser attempt; direct OPTIONS returned 200. No live claim is allowed until a normal browser run succeeds.
+- A successful live-model run. Route reachability was re-checked on 23 November 2026: a headed Chromium browser passes preflight and the router answers HTTP 401 for a placeholder key, so the route works with a real key. The earlier HTTP 405 came from headless Chromium, which the provider's edge blocks. No live completion is claimed because no provider key was used.
 - Portal submission and the remaining checklist rows. The narrated master is public; the portal rules, deadline and accepted video host are unverified.
 
 ## Guardrails

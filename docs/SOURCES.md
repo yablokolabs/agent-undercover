@@ -27,7 +27,7 @@ The video describes a site whose browser agents use the visitor's selected model
 - Hugging Face Router: <https://router.huggingface.co/v1>
 - Suggested model at build time: `openai/gpt-oss-20b`
 
-Browser CORS was tested on 17 November 2026. A direct OPTIONS request returned 200, but Chromium's preflight returned 405. No live completion is claimed. Verify the current provider behavior before relying on this route.
+Browser CORS was tested on 17 and 23 November 2026. A direct OPTIONS request returns 200, and a headed Chromium browser reaches the router (preflight OK, HTTP 401 for a placeholder key). Headless Chromium is blocked at the edge with HTTP 405, so capture and CI browsers cannot use this route. No live completion is claimed because no provider key was used. Verify the current provider behavior before relying on this route.
 
 ## Deadline
 

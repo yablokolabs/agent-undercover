@@ -239,7 +239,7 @@ const html = `<!doctype html>
       <tr><td class="mono">npm run test:e2e</td><td class="ok">1 passed</td><td>Browser run: secret fixture, blocked unapproved access, canary-free export</td></tr>
       <tr><td class="mono">npm run build</td><td class="ok">Passed</td><td>Both static sites</td></tr>
       <tr><td>Public origins</td><td class="ok">HTTP 200</td><td>Both roots, both manifests and <span class="mono">undercover_secret_v1.network.json</span> with <span class="mono">access-control-allow-origin: *</span></td></tr>
-      <tr><td>Live model route</td><td class="warn">Not claimed</td><td>Chromium preflight to the default router returned HTTP 405; no live-model result is asserted</td></tr>
+      <tr><td>Live model route</td><td class="warn">Not claimed</td><td>Headed Chromium passes preflight and the router answers 401 for a placeholder key; headless Chromium is blocked at the edge with 405. No provider key was used, so no completion is asserted.</td></tr>
     </tbody>
   </table>
 
@@ -277,7 +277,7 @@ const html = `<!doctype html>
       <tr><td>BYOK isolation</td><td class="ok">Pass</td><td>Key only in session state and the inference request header</td></tr>
       <tr><td>Public HTTPS deployment</td><td class="ok">Pass</td><td>Exact-hostname certificates, HTTPS enforced, CORS verified</td></tr>
       <tr><td>Entrant-voiced video</td><td class="ok">Pass</td><td>119.4 s narrated master, public on Vimeo</td></tr>
-      <tr><td>Live model proof</td><td class="warn">Not complete</td><td>Browser preflight HTTP 405; no claim made</td></tr>
+      <tr><td>Live model proof</td><td class="warn">Not complete</td><td>Route reachable from a headed browser; no provider key used</td></tr>
       <tr><td>NANDA / A2A / MCP / WebMCP</td><td class="warn">Not claimed</td><td>Not implemented</td></tr>
     </tbody>
   </table>
@@ -288,7 +288,7 @@ const html = `<!doctype html>
   <h2>7. Boundaries and non-claims</h2>
   <ul>
     <li>The demo runs deterministic fixtures against an owned synthetic target. It is not a scan of any real or third-party system, and a public URL grants no testing permission.</li>
-    <li>No live-model result is claimed. The browser preflight to the default inference router returned HTTP 405, so the submission stays fixture-only and says so in the product.</li>
+    <li>No live-model result is claimed. The default router is reachable from a normal browser (preflight OK, HTTP 401 for a placeholder key); the earlier HTTP 405 was headless Chromium being blocked at the provider's edge, and no provider key was used for a completion.</li>
     <li>No general security certification, and no NANDA, A2A, MCP or WebMCP support is claimed or implemented.</li>
     <li>The canary and oracle ground truth stay out of spy prompts, public artifacts, saved records and exports. Canary values are synthetic.</li>
     <li>Peer-provided executable JavaScript is not run in this version. Networks are declarative instructions and tool declarations.</li>

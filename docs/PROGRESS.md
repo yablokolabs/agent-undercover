@@ -13,7 +13,7 @@
 - [x] **M4 — repair, replay and reports.** Implemented versioned repair, stored-request replay, hash checks, IndexedDB sanitized records and JSON/Markdown export.
 - [x] **M5 — local conformance and evidence.** Added 35 tests, 61 artifact checks, schema validation, architecture diagram, screenshots and conformance report.
 - [x] **M6 — public demo.** Both origins are live on separate GitHub Pages repositories with DNS-only CNAMEs, approved exact-hostname certificates and HTTPS enforced. Public artifact, CORS and cross-origin fixture checks pass.
-- [ ] **M7 — live model proof.** Verify a supported browser-CORS inference route; the default Hugging Face Router preflight failed with HTTP 405.
+- [~] **M7 — live model proof.** Browser reachability verified on 23 November 2026: headed Chromium passes the Hugging Face Router preflight and receives HTTP 401 for a placeholder key, and OpenRouter, Mistral, Gemini and Groq also pass. The earlier 405 was headless-only. A completed live mission still needs a provider key.
 - [~] **M8 — submission.** The narrated public demo master is finalized at `docs/assets/agent-undercover-demo-public.mp4`: 119.4 seconds (1:59.4), 1920×1080, 30 fps, H.264 with 48 kHz stereo AAC, −17.9 LUFS integrated, −4.3 dBFS true peak. It was supplied byte-identically from `video/public/agent-undercover-demo.mp4` (same MD5, streams untouched). The earlier 108.8-second silent cut (`docs/assets/agent-undercover-demo-public-silent.mp4`) and the 66.5-second Remotion picture lock remain as sources. The narrated cut is public at <https://vimeo.com/1249258448> (119 s) and the source is published at <https://github.com/yablokolabs/agent-undercover>. The portal submission and the remaining checklist rows stay open.
 
 ## Exact checks at this checkpoint
@@ -47,7 +47,7 @@ Re-checked 23 November 2026: both root documents, both manifests and `undercover
 
 ## Blockers and boundaries
 
-- The default live router failed browser preflight; no live-model result is claimed.
+- The default live router is reachable from a headed browser but blocked for headless Chromium; no live-model result is claimed.
 - Public deployment is static GitHub Pages; the target does not execute the mission.
 - The 66.5-second Remotion cut is silent; the narrated public demo master is the submission candidate.
 - `docs/DEMO_NARRATION_TIMED.md` timings describe the 108.8-second silent cut, not the 119.4-second narrated master.

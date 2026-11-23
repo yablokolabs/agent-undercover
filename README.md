@@ -30,7 +30,7 @@ Public hosting is live at these two origins:
 
 Both are separate GitHub Pages sites. DNS points directly to GitHub, each certificate names its exact hostname, and HTTP redirects to HTTPS. The public artifact, CORS and cross-origin evidence is in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
-The default live route is the Hugging Face Router (`https://router.huggingface.co/v1`, suggested model `openai/gpt-oss-20b`). A browser preflight to that route returned HTTP 405 during the final verification, so the product does not claim a successful live-model run. Fixture results are labeled as fixture results.
+The default live route is the Hugging Face Router (`https://router.huggingface.co/v1`, suggested model `openai/gpt-oss-20b`). A normal headed browser reaches it: the preflight passes and the router answers HTTP 401 for a placeholder key. An earlier HTTP 405 came from headless Chromium, which the provider's edge blocks. No live completion is claimed because no provider key was used, and fixture results are labeled as fixture results.
 
 ## Quick start
 
