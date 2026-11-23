@@ -1,0 +1,15 @@
+# Conformance and runtime integration
+
+> **Shipped status:** see [CONFORMANCE_RESULTS.md](CONFORMANCE_RESULTS.md) for the current clause-to-evidence map, exact commands and known gaps. The text below is the implementation checklist used to build and review the product.
+
+Read the current normative MVP spec and upstream examples linked in SOURCES.md. Record the exact revision and use the real schema. Fields below are a map of concepts, not a substitute manifest to paste blindly.
+
+1. Publish agent-manifest.json with an exact network name, front_man entry point and hocon location pointing to resolved data-only network JSON. Include router and peer policy metadata required by the pinned schema. Keep the runtime JS files and a functioning UI public.
+2. Publish links.json peer bindings as required by the implemented profile. The target URL convention is the site base plus the published network name, not an arbitrary chat API URL. Fetch the base manifest, require an exact name match, resolve the declared artifact and validate before running.
+3. Execute graph orchestration, validation and supported tool calls in JavaScript in the visitor's tab. Peer definitions instantiate in the caller runtime using the caller model policy. Source site's local actions are not automatically available to imported peers.
+4. Use HTTPS publicly and loopback HTTP locally. Allow CORS for public data artifacts as appropriate. Public artifacts contain no credentials. Runtime bounds cover cycles, call depth, tokens/cost estimate, turn count, response size and wall-clock time. Closing a tab ends tab-scoped execution; do not claim durable background jobs.
+5. Consent precedes peer/MCP contact. Reevaluate a redirect to a new origin before following it. Grant remembered consent only for the chosen origin and session. Require destination and arguments review for write/irreversible actions.
+6. For v1, target demo effects are explicitly caller-local synthetic actions. Bind them to scenario-scoped adapters with no production authority. This is a harness feature, not a claim that the spec grants cross-origin execution. If the runtime cannot bind these safely, host the simulated business actor on its own origin and implement a documented optional bridge with exact origin/source checks and one-use permissions. Do not implement the extension until needed.
+7. Publish a small Agent Undercover public network that explains a user-supplied sanitized test report. Prove another owned caller can import it by URL. Keep the workbench's private oracle out of the exported network definition.
+
+Produce docs/CONFORMANCE_RESULTS.md mapping actual spec clauses, shipped paths, exact checks and results. Verify referenced origin, manifest/JSON/runtime URLs, schema validity, CORS, exact-name mismatch rejection, peer execution and write confirmation from the public normal entry point. Do not claim NANDA discovery, A2A, MCP or WebMCP integration unless actually implemented. Direct linking is sufficient for the MVP profile.

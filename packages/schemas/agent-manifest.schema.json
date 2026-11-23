@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-undercover.local/schemas/agent-manifest.schema.json",
+  "title": "Agent site manifest",
+  "type": "object",
+  "required": ["networks", "llm_router", "peer_policy"],
+  "properties": {
+    "brand": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "networks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "front_man", "hocon"],
+        "properties": {
+          "name": { "type": "string", "pattern": "^[A-Za-z0-9_][A-Za-z0-9_.-]{0,79}$" },
+          "front_man": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "hocon": { "type": "string", "minLength": 1, "maxLength": 500 },
+          "description": { "type": "string", "maxLength": 1000 },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "sample_queries": { "type": "array", "items": { "type": "string", "maxLength": 500 } },
+          "undercover_fixture": {
+            "type": "object",
+            "required": ["mission", "version"],
+            "properties": {
+              "mission": { "enum": ["secret", "discount", "approval"] },
+              "version": { "type": "integer", "minimum": 1, "maximum": 99 },
+              "weakness": { "type": "string", "maxLength": 300 }
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "llm_router": {
+      "type": "object",
+      "required": ["base_url"],
+      "properties": {
+        "base_url": { "type": "string", "minLength": 1 },
+        "mock": { "type": "boolean" },
+        "byok_router": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "allowed_peers": { "type": "array", "items": { "type": "string" } },
+    "peer_policy": {
+      "type": "object",
+      "required": ["mode"],
+      "properties": {
+        "mode": { "enum": ["open", "closed"] },
+        "deny_origins": { "type": "array", "items": { "type": "string" } },
+        "note": { "type": "string", "maxLength": 500 }
+      },
+      "additionalProperties": true
+    },
+    "actions": {
+      "type": "object",
+      "properties": {
+        "version": { "type": "integer", "enum": [1] },
+        "agentTools": { "type": "array", "items": { "type": "string" } },
+        "module": { "type": "string" },
+        "bridge": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "linking": { "type": "object" },
+    "deployment": { "type": "object" },
+    "theme": { "type": "object" },
+    "agent_mcp": { "type": "object" }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@undercover/scenarios",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@undercover/harness": "0.1.0"
+  }
+}

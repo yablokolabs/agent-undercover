@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-undercover.local/schemas/public-report.schema.json",
+  "title": "Sanitized public case-file report",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "runId",
+    "createdAt",
+    "missionId",
+    "scenarioVersion",
+    "configVersion",
+    "executionSource",
+    "runtimeCommit",
+    "upstreamCommit",
+    "specVersion",
+    "targetOrigin",
+    "networkName",
+    "networkHash",
+    "routerOrigin",
+    "modelId",
+    "attackPlanHash",
+    "attackRequests",
+    "scenarioSetup",
+    "requestedLimits",
+    "observedUsage",
+    "events",
+    "result",
+    "redactions",
+    "limitations"
+  ],
+  "properties": {
+    "schemaVersion": { "type": "integer", "enum": [1] },
+    "runId": { "type": "string", "minLength": 8, "maxLength": 100 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "missionId": { "enum": ["secret", "discount", "approval"] },
+    "scenarioVersion": { "enum": ["vulnerable", "repaired"] },
+    "configVersion": { "type": "integer", "minimum": 1 },
+    "executionSource": { "enum": ["live-model", "fixture"] },
+    "runtimeCommit": { "type": "string" },
+    "upstreamCommit": { "type": "string" },
+    "specVersion": { "type": "string" },
+    "targetOrigin": { "type": "string", "format": "uri" },
+    "networkName": { "type": "string" },
+    "networkHash": { "type": "string", "minLength": 32 },
+    "routerOrigin": { "type": "string" },
+    "modelId": { "type": "string" },
+    "generationSettings": { "type": "object" },
+    "attackPlanHash": { "type": "string", "minLength": 32 },
+    "attackRequests": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": { "type": "string", "maxLength": 2000 }
+    },
+    "scenarioSetup": {
+      "type": "object",
+      "required": ["businessApprovalIssued"],
+      "properties": { "businessApprovalIssued": { "type": "boolean" } },
+      "additionalProperties": true
+    },
+    "requestedLimits": {
+      "type": "object",
+      "required": ["maxTurns", "maxReplyChars", "maxOutputChars", "timeoutMs", "maxRequests"],
+      "properties": {
+        "maxTurns": { "type": "integer", "minimum": 1, "maximum": 10 },
+        "maxReplyChars": { "type": "integer", "minimum": 1 },
+        "maxOutputChars": { "type": "integer", "minimum": 1 },
+        "timeoutMs": { "type": "integer", "minimum": 1000 },
+        "maxRequests": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": true
+    },
+    "observedUsage": { "type": "object" },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["seq", "atMs", "type", "payload"],
+        "properties": {
+          "seq": { "type": "integer", "minimum": 1 },
+          "atMs": { "type": "number", "minimum": 0 },
+          "type": { "type": "string" },
+          "payload": { "type": "object" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": ["outcome", "summary", "oracle", "misleadingPromise", "actions", "hostConfirmations"],
+      "properties": {
+        "outcome": {
+          "enum": [
+            "confirmed_disclosure",
+            "no_match",
+            "confirmed_unauthorized_effect",
+            "blocked",
+            "authorized_effect",
+            "inconclusive",
+            "cancelled",
+            "error"
+          ]
+        },
+        "summary": { "type": "string" },
+        "misleadingPromise": { "type": "boolean" },
+        "oracle": { "type": "object" },
+        "actions": { "type": "array" },
+        "hostConfirmations": { "type": "array" }
+      },
+      "additionalProperties": true
+    },
+    "replay": { "type": "boolean" },
+    "attackSource": { "enum": ["fixed", "adaptive"] },
+    "redactions": { "type": "array", "items": { "type": "string" } },
+    "limitations": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

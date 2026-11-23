@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-undercover.local/schemas/run-record.schema.json",
+  "title": "Internal sanitized run record",
+  "allOf": [{ "$ref": "public-report.schema.json" }],
+  "required": ["replay", "attackSource", "notes", "target"],
+  "properties": {
+    "target": {
+      "type": "object",
+      "required": ["targetOrigin", "targetUrl", "networkName", "networkHash", "manifestHash", "configVersion"],
+      "properties": {
+        "targetOrigin": { "type": "string" },
+        "targetUrl": { "type": "string" },
+        "networkName": { "type": "string" },
+        "networkHash": { "type": "string" },
+        "manifestHash": { "type": "string" },
+        "configVersion": { "type": "integer" },
+        "configLabel": { "type": "string" },
+        "validation": { "type": "object" }
+      }
+    },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}

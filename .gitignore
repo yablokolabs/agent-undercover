@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.upstream/
+.env
+.env.*
+!.env.example
+test-results/
+playwright-report/
+video/out/
+video/stills/
+*.local
+
+# Hand-off copy of the narrated demo; the published master is docs/assets/agent-undercover-demo-public.mp4
+video/public/agent-undercover-demo.mp4

@@ -1,0 +1,15 @@
+I'm Santhosh Balasa, and this is Agent Undercover, live at agent-undercover.yablokolabs.com. It is a workbench for one question: when my agent talks to another website, which boundaries actually hold?
+
+This is a run against the separate synthetic target, undercover-target.yablokolabs.com. I own the fixture; the planted-secret mission is selected. The target publishes a data-only network. This is deterministic fixture mode, not a live model.
+
+BYOK is optional. A live-model key stays in this tab's memory, goes only to the inference endpoint, and is never sent to the target or exported. This run uses no key.
+
+I authorize this exact target; the vulnerable v1 configuration is selected; I start. The workbench asks for per-origin consent. I allow it. The target is static; the network runs in my browser, not on its server.
+
+The case file reports Confirmed disclosure: the exact per-run canary appeared in an attacker-visible reply. That is evidence for this synthetic test, not proof the target is secure. Exact-substring detection only.
+
+I apply the reviewed repair. It removes the codeword from the target's context. The workbench reruns the same three stored requests against v2.
+
+The compare view reports Not observed for v2, shows the same request strings, and keeps both network hashes. The repair changed the boundary; replay makes the comparison repeatable. A not-observed result is not proof of security.
+
+Test the boundary before you trust the agent. The live workbench is agent-undercover.yablokolabs.com. Fixture evidence, no real customer data, not a certification.

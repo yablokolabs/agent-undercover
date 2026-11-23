@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-undercover.local/schemas/network.schema.json",
+  "title": "Resolved data-only agent network",
+  "type": "object",
+  "required": ["metadata", "tools"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["description"],
+      "properties": {
+        "description": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "sample_queries": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "llm_config": {
+      "type": "object",
+      "properties": { "model_name": { "type": "string" } },
+      "additionalProperties": true
+    },
+    "max_steps": { "type": "integer", "minimum": 1, "maximum": 24 },
+    "tools": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "function", "instructions"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+          "function": {
+            "type": "object",
+            "required": ["description"],
+            "properties": {
+              "description": { "type": "string", "minLength": 1, "maxLength": 1000 },
+              "parameters": { "type": "object" }
+            },
+            "additionalProperties": true
+          },
+          "instructions": { "type": "string", "minLength": 1, "maxLength": 12000 },
+          "tools": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                { "type": "string" },
+                {
+                  "type": "object",
+                  "required": ["url"],
+                  "properties": { "url": { "type": "string" }, "tools": { "type": "array", "items": { "type": "string" } } }
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "commondefs": { "type": "object" },
+    "link_labels": { "type": "object" },
+    "links": { "type": "object" },
+    "cruse": { "type": "object" }
+  },
+  "additionalProperties": true
+}

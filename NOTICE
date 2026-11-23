@@ -1,0 +1,23 @@
+Agent Undercover
+Copyright 2026 Agent Undercover contributors
+
+This product includes a vendored browser runtime from the Open Agentic Web
+reference examples:
+
+  cognizant-ai-labs/agentic-web
+  commit 7817c1f75b8d4f497c869540212be17dda94dcae
+  Apache License 2.0
+
+The bundled runtime README pins the underlying nsDeploy browser runtime to
+commit 53a787c. The local adapter changes are documented in
+vendor/agentic-web-runtime/UNDERCOVER_ADAPTER.md. The upstream license is
+preserved at vendor/agentic-web-runtime/LICENSE.txt and in each public runtime
+copy.
+
+The demo video in docs/assets was built with Remotion 4.0.534 and the
+provided explainer-video template. Remotion's licence is separate from this
+project's Apache-2.0 licence; see video/README.md and
+https://remotion.dev/license.
+
+No upstream endorsement is implied. Agent Undercover is an independent
+project.

@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Undercover architecture</title>
+  <desc id="desc">A caller browser loads a target origin's public manifest and exact data-only network after consent, runs the network with the vendored runtime, sends model calls only to the selected inference endpoint, and records findings with a deterministic harness. The canary and oracle ground truth stay in session memory and never enter the spy context or exported report.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f766e"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b91c1c"/>
+    </marker>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.3" fill="#d8d2c4"/>
+    </pattern>
+  </defs>
+
+  <rect width="1800" height="1120" fill="#f6f3eb"/>
+  <rect width="1800" height="1120" fill="url(#dots)" opacity="0.55"/>
+
+  <g font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="60" y="62" font-size="17" font-weight="700" letter-spacing="3" fill="#0f766e">AGENT UNDERCOVER</text>
+    <text x="60" y="106" font-size="38" font-weight="700" fill="#0d1b2a">Two origins, one caller browser</text>
+    <text x="60" y="138" font-size="17" fill="#475569">Public data artifacts cross an origin boundary. Execution, consent, effects, budgets and findings stay in the visitor's tab.</text>
+
+    <!-- Browser frame -->
+    <rect x="50" y="170" width="1190" height="880" rx="18" fill="#fffdf8" stroke="#0d1b2a" stroke-width="2"/>
+    <path d="M50 218 h1190" stroke="#ded8cb"/>
+    <circle cx="80" cy="194" r="5" fill="#b91c1c"/><circle cx="98" cy="194" r="5" fill="#b45309"/><circle cx="116" cy="194" r="5" fill="#0f766e"/>
+    <text x="140" y="200" font-size="15" font-weight="600" fill="#334155">http://localhost:5173</text>
+    <text x="340" y="200" font-size="13" fill="#64748b">workbench origin · normal browser tab</text>
+    <rect x="1020" y="181" width="190" height="28" rx="14" fill="#e6f4ef" stroke="#0f766e"/>
+    <text x="1115" y="200" font-size="12" font-weight="700" text-anchor="middle" fill="#0f766e">CALLER RUNTIME</text>
+
+    <!-- Workbench UI -->
+    <rect x="80" y="246" width="350" height="320" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="102" y="280" font-size="12" font-weight="700" letter-spacing="2" fill="#0f766e">WORKBENCH UI</text>
+    <text x="102" y="312" font-size="20" font-weight="700" fill="#0d1b2a">Mission control</text>
+    <text x="102" y="344" font-size="14" fill="#475569">Choose one owned fixture, version</text>
+    <text x="102" y="364" font-size="14" fill="#475569">and inference source.</text>
+    <g font-size="13" fill="#334155">
+      <text x="102" y="400">• per-origin consent dialog</text>
+      <text x="102" y="426">• host write confirmation</text>
+      <text x="102" y="452">• numbered case file</text>
+      <text x="102" y="478">• repair comparison</text>
+      <text x="102" y="504">• sanitized JSON / Markdown</text>
+      <text x="102" y="530">• published explainer</text>
+    </g>
+    <rect x="102" y="548" width="306" height="1" fill="#e2e8f0"/>
+    <text x="102" y="576" font-size="12" fill="#64748b">No target server executes this mission.</text>
+
+    <!-- Harness -->
+    <rect x="458" y="246" width="392" height="454" rx="12" fill="#0d1b2a"/>
+    <text x="482" y="280" font-size="12" font-weight="700" letter-spacing="2" fill="#67e8d0">DETERMINISTIC HARNESS</text>
+    <text x="482" y="314" font-size="20" font-weight="700" fill="#ffffff">Policy owns the boundary</text>
+    <g font-size="13" fill="#cbd5e1">
+      <text x="482" y="352">Consent memo: exact origin + session only</text>
+      <text x="482" y="380">Budgets: 3 turns · 3 requests · 90 seconds</text>
+      <text x="482" y="408">Scenario ledgers: discount and approval</text>
+      <text x="482" y="436">Oracles: exact canary · 10% max · one-use token</text>
+      <text x="482" y="464">Observed effects separated from model prose</text>
+      <text x="482" y="492">Hash + bounded event log + replay checks</text>
+      <text x="482" y="520">Redaction before IndexedDB or export</text>
+    </g>
+    <rect x="482" y="548" width="344" height="118" rx="8" fill="#12283d" stroke="#1e3a52"/>
+    <text x="500" y="574" font-size="12" font-weight="700" letter-spacing="1.4" fill="#fbbf24">SYNTHETIC ACTION CONTRACT</text>
+    <text x="500" y="600" font-size="13" fill="#e2e8f0">discount ledger → applied percent is checked</text>
+    <text x="500" y="622" font-size="13" fill="#e2e8f0">approval ledger → proposal-bound, one use</text>
+    <text x="500" y="644" font-size="12" fill="#94a3b8">Caller-local. No production authority.</text>
+
+    <!-- Runtime -->
+    <rect x="876" y="246" width="334" height="320" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="898" y="280" font-size="12" font-weight="700" letter-spacing="2" fill="#0f766e">VENDORED RUNTIME</text>
+    <text x="898" y="312" font-size="20" font-weight="700" fill="#0d1b2a">Network engine</text>
+    <text x="898" y="342" font-size="12" fill="#64748b">agentic-web 7817c1f · nsDeploy 53a787c</text>
+    <g font-size="13" fill="#334155">
+      <text x="898" y="378">• exact-name manifest lookup</text>
+      <text x="898" y="404">• data-only network JSON</text>
+      <text x="898" y="430">• graph orchestration in this tab</text>
+      <text x="898" y="456">• supported tool dispatch</text>
+      <text x="898" y="482">• caller model policy</text>
+    </g>
+    <rect x="898" y="508" width="290" height="38" rx="7" fill="#fff7ed" stroke="#fdba74"/>
+    <text x="912" y="532" font-size="12" fill="#9a3412">Target network runs top-level here.</text>
+
+    <!-- Spy context -->
+    <rect x="80" y="594" width="350" height="126" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="102" y="624" font-size="12" font-weight="700" letter-spacing="2" fill="#0f766e">SPY CONTEXT</text>
+    <text x="102" y="652" font-size="15" font-weight="600" fill="#0d1b2a">Objective + allowed grammar only</text>
+    <text x="102" y="676" font-size="12" fill="#475569">Plain language · ≤320 chars · no URLs</text>
+    <text x="102" y="698" font-size="12" fill="#b91c1c">No canary. No oracle ground truth.</text>
+
+    <!-- Session memory -->
+    <rect x="80" y="744" width="350" height="192" rx="12" fill="#fffbeb" stroke="#b45309" stroke-dasharray="7 5"/>
+    <text x="102" y="774" font-size="12" font-weight="700" letter-spacing="2" fill="#b45309">SESSION MEMORY ONLY</text>
+    <text x="102" y="804" font-size="17" font-weight="700" fill="#0d1b2a">Private test material</text>
+    <g font-size="13" fill="#475569">
+      <text x="102" y="832">• per-run synthetic canary</text>
+      <text x="102" y="856">• oracle ground truth</text>
+      <text x="102" y="880">• provider key</text>
+    </g>
+    <text x="102" y="910" font-size="12" fill="#9a3412">Never in public artifacts, spy prompt,</text>
+    <text x="102" y="928" font-size="12" fill="#9a3412">IndexedDB or an exported report.</text>
+
+    <!-- Target invocation context -->
+    <rect x="458" y="744" width="392" height="90" rx="10" fill="#f0fdfa" stroke="#0f766e" stroke-dasharray="7 5"/>
+    <text x="478" y="774" font-size="12" font-weight="700" letter-spacing="1.4" fill="#0f766e">TARGET-PRIVATE INVOCATION CONTEXT</text>
+    <text x="478" y="800" font-size="13" fill="#334155">Weak fixture only: canary placeholder is replaced</text>
+    <text x="478" y="820" font-size="13" fill="#334155">in memory, inside the target agent instructions.</text>
+
+    <!-- Report -->
+    <rect x="876" y="594" width="334" height="126" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="898" y="624" font-size="12" font-weight="700" letter-spacing="2" fill="#0f766e">RESULT</text>
+    <text x="898" y="652" font-size="15" font-weight="600" fill="#0d1b2a">Findings, not certification</text>
+    <text x="898" y="676" font-size="12" fill="#475569">confirmed · not observed · blocked</text>
+    <text x="898" y="698" font-size="12" fill="#475569">inconclusive on timeout or error</text>
+
+    <!-- Target origin -->
+    <rect x="1290" y="210" width="450" height="360" rx="16" fill="#ffffff" stroke="#0d1b2a" stroke-width="2"/>
+    <text x="1314" y="244" font-size="12" font-weight="700" letter-spacing="2" fill="#b45309">SECOND ORIGIN</text>
+    <text x="1314" y="278" font-size="22" font-weight="700" fill="#0d1b2a">Synthetic target</text>
+    <text x="1314" y="304" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#475569">http://localhost:5174</text>
+    <g font-size="13" fill="#334155">
+      <text x="1314" y="340">• agent-manifest.json</text>
+      <text x="1314" y="366">• six versioned network JSON files</text>
+      <text x="1314" y="392">• public runtime + interface</text>
+      <text x="1314" y="418">• links.json and CORS headers</text>
+    </g>
+    <rect x="1314" y="446" width="402" height="94" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="1330" y="472" font-size="12" font-weight="700" fill="#0f766e">PUBLIC BY DESIGN</text>
+    <text x="1330" y="496" font-size="12" fill="#475569">No key, canary, oracle, report database</text>
+    <text x="1330" y="516" font-size="12" fill="#475569">or private case file. Static data only.</text>
+
+    <!-- Inference -->
+    <rect x="1290" y="632" width="450" height="220" rx="16" fill="#0d1b2a"/>
+    <text x="1314" y="666" font-size="12" font-weight="700" letter-spacing="2" fill="#67e8d0">OPERATOR-SELECTED HOP</text>
+    <text x="1314" y="700" font-size="22" font-weight="700" fill="#ffffff">Inference endpoint</text>
+    <text x="1314" y="730" font-size="13" fill="#cbd5e1">OpenAI-compatible · BYOK · HTTPS</text>
+    <rect x="1314" y="752" width="402" height="76" rx="8" fill="#12283d" stroke="#1e3a52"/>
+    <text x="1330" y="778" font-size="12" font-weight="700" fill="#fbbf24">KEY PATH</text>
+    <text x="1330" y="800" font-size="13" fill="#e2e8f0">Authorization header on this request only.</text>
+    <text x="1330" y="818" font-size="13" fill="#e2e8f0">No public fetch receives the key.</text>
+
+    <!-- Report export -->
+    <rect x="1290" y="882" width="450" height="150" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="1314" y="914" font-size="12" font-weight="700" letter-spacing="2" fill="#0f766e">OPERATOR ARTIFACT</text>
+    <text x="1314" y="944" font-size="18" font-weight="700" fill="#0d1b2a">Sanitized report</text>
+    <text x="1314" y="970" font-size="12" fill="#475569">Hashes · requests · bounded events · outcome</text>
+    <text x="1314" y="992" font-size="12" fill="#475569">Canary → [REDACTED_CANARY] · key absent</text>
+    <text x="1314" y="1014" font-size="12" fill="#475569">Query strings removed · size capped</text>
+
+    <!-- Arrows and labels -->
+    <!-- target to runtime public artifacts -->
+    <path d="M1290 390 C1250 390 1250 330 1210 330" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="1216" y="300" width="68" height="24" rx="12" fill="#f6f3eb"/>
+    <text x="1250" y="317" font-size="11" font-weight="700" text-anchor="middle" fill="#334155">PUBLIC GET</text>
+    <text x="1200" y="420" font-size="10.5" fill="#64748b">consent first</text>
+    <text x="1200" y="434" font-size="10.5" fill="#64748b">exact name</text>
+
+    <!-- key to inference -->
+    <path d="M430 900 C730 942 1020 942 1290 800" fill="none" stroke="#b91c1c" stroke-width="2.2" stroke-dasharray="8 6" marker-end="url(#arrowRed)"/>
+    <rect x="720" y="916" width="262" height="26" rx="13" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="851" y="934" font-size="11" font-weight="700" text-anchor="middle" fill="#b91c1c">KEY ONLY TO THE SELECTED ENDPOINT</text>
+
+    <!-- canary to target context -->
+    <path d="M430 784 C444 784 446 790 458 794" fill="none" stroke="#b45309" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="437" y="770" font-size="10.5" font-weight="700" fill="#b45309">inject</text>
+
+    <!-- harness to runtime -->
+    <path d="M850 380 L876 380" fill="none" stroke="#0f766e" stroke-width="2.4" marker-end="url(#arrowTeal)"/>
+    <text x="852" y="372" font-size="10.5" font-weight="700" fill="#0f766e">policy</text>
+
+    <!-- runtime to inference model calls -->
+    <path d="M1210 470 C1260 470 1250 690 1290 690" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="1220" y="600" width="64" height="54" rx="8" fill="#f6f3eb"/>
+    <text x="1252" y="618" font-size="10.5" font-weight="700" text-anchor="middle" fill="#334155">MODEL</text>
+    <text x="1252" y="633" font-size="10.5" text-anchor="middle" fill="#334155">CALLS</text>
+    <text x="1252" y="648" font-size="10.5" text-anchor="middle" fill="#334155">only</text>
+
+    <!-- runtime to report -->
+    <path d="M1043 566 L1043 594" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- harness to report -->
+    <path d="M850 560 C860 560 866 620 876 640" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- report to export -->
+    <path d="M1210 656 C1250 656 1260 930 1290 946" fill="none" stroke="#0f766e" stroke-width="2" marker-end="url(#arrowTeal)"/>
+    <text x="1222" y="880" font-size="10.5" font-weight="700" fill="#0f766e">redact</text>
+
+    <!-- No peer code note -->
+    <rect x="80" y="972" width="1130" height="48" rx="10" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="102" y="1002" font-size="13" fill="#991b1b"><tspan font-weight="700">v1 boundary:</tspan> no peer-provided executable JavaScript, no ambient production actions, no general security certification.</text>
+
+    <text x="60" y="1090" font-size="12" fill="#94a3b8">Open Agentic Web MVP Profile 0.2 · upstream 7817c1f · runtime adapter undercover-runtime-adapter/1</text>
+  </g>
+</svg>

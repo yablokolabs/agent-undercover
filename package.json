@@ -1,0 +1,47 @@
+{
+  "name": "agent-undercover",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bounded adversarial missions for opt-in agentic networks, run in the caller's browser.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n workbench,target -c cyan,yellow \"npm:dev:workbench\" \"npm:dev:target\"",
+    "dev:workbench": "npm --workspace @undercover/workbench run dev",
+    "dev:target": "npm --workspace @undercover/demo-target run dev",
+    "build": "npm run build:target && npm run build:workbench",
+    "build:workbench": "npm --workspace @undercover/workbench run build",
+    "build:target": "npm --workspace @undercover/demo-target run build",
+    "preview": "concurrently -n workbench,target -c cyan,yellow \"npm:preview:workbench\" \"npm:preview:target\"",
+    "preview:workbench": "npm --workspace @undercover/workbench run preview",
+    "preview:target": "npm --workspace @undercover/demo-target run preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "render:architecture": "node scripts/render-architecture.mjs",
+    "record:demo": "node scripts/record-demo.mjs",
+    "record:public-demo": "node scripts/record-public-demo.mjs",
+    "assemble:public-demo": "node scripts/assemble-public-demo.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit && npm --workspace @undercover/workbench run typecheck && npm --workspace @undercover/demo-target run typecheck",
+    "check:artifacts": "node scripts/check-artifacts.mjs",
+    "sync:runtime": "node scripts/sync-runtime.mjs",
+    "verify": "npm run typecheck && npm test && npm run check:artifacts && npm run build"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.3",
+    "@types/react-dom": "19.0.2",
+    "@vitejs/plugin-react": "4.3.4",
+    "ajv": "8.17.1",
+    "concurrently": "9.1.2",
+    "jsdom": "25.0.1",
+    "typescript": "5.7.2",
+    "vite": "6.0.7",
+    "vitest": "2.1.8"
+  }
+}
