@@ -239,6 +239,7 @@ const html = `<!doctype html>
       <tr><td class="mono">npm run test:e2e</td><td class="ok">1 passed</td><td>Browser run: secret fixture, blocked unapproved access, canary-free export</td></tr>
       <tr><td class="mono">npm run build</td><td class="ok">Passed</td><td>Both static sites</td></tr>
       <tr><td>Public origins</td><td class="ok">HTTP 200</td><td>Both roots, both manifests and <span class="mono">undercover_secret_v1.network.json</span> with <span class="mono">access-control-allow-origin: *</span></td></tr>
+      <tr><td class="mono">Exact-name rejection</td><td class="ok">Rejected</td><td>Public origin, 23 Nov 2026: <span class="mono">not_published_network</span> refused with the published-name list (<span class="mono">case_explainer</span>)</td></tr>
       <tr><td>Live model route</td><td class="warn">Not claimed</td><td>Headed Chromium passes preflight and the router answers 401 for a placeholder key; headless Chromium is blocked at the edge with 405. No provider key was used, so no completion is asserted.</td></tr>
     </tbody>
   </table>
@@ -268,7 +269,7 @@ const html = `<!doctype html>
       <tr><td>Pinned spec and runtime</td><td class="ok">Pass</td><td>Adapter notes and pinned config in source</td></tr>
       <tr><td>Manifest and data-only network</td><td class="ok">Pass</td><td>Both manifests validate against the published schemas</td></tr>
       <tr><td>Caller-browser orchestration</td><td class="ok">Pass</td><td>Runtime engine loaded in the tab; target serves static files only</td></tr>
-      <tr><td>Exact-name lookup</td><td class="ok">Pass</td><td>Unpublished name rejected in the browser; unit test covers mismatch</td></tr>
+      <tr><td>Exact-name lookup</td><td class="ok">Pass</td><td>Unpublished name rejected from the public origin on 23 Nov 2026; unit test covers mismatch</td></tr>
       <tr><td>Consent before contact</td><td class="ok">Pass</td><td>Per-origin dialog, event log and screenshot</td></tr>
       <tr><td>Bounded execution</td><td class="ok">Pass</td><td>3 turns, 3 requests, 90 s, 1,800 reply chars</td></tr>
       <tr><td>Deterministic oracles</td><td class="ok">Pass</td><td>35 unit tests across all three missions</td></tr>
@@ -323,15 +324,18 @@ npm run test:e2e       # browser run against the fixture mission</pre>
       <tr><td>CORS and cross-origin loading verified from the public origin</td><td class="ok">Done</td></tr>
       <tr><td>Public video under two minutes with the entrant's voice and genuine footage</td><td class="ok">Done</td></tr>
       <tr><td>Source repository and reusable harness published</td><td class="ok">Done</td></tr>
-      <tr><td>Exact-name rejection verified from the public origin</td><td class="warn">Open</td></tr>
-      <tr><td>Screenshots and description use the same claims as the conformance report</td><td class="warn">Open</td></tr>
-      <tr><td>Current rules, deadline and accepted video host verified on the portal</td><td class="warn">Open</td></tr>
+      <tr><td>Exact-name rejection verified from the public origin (23 Nov 2026)</td><td class="ok">Done</td></tr>
+      <tr><td>Screenshots and description use the same claims as the conformance report (audited 23 Nov 2026)</td><td class="ok">Done</td></tr>
+      <tr><td>Official rules and deadline verified (ends 11 Jan 2027, 16:00 UTC)</td><td class="ok">Done</td></tr>
+      <tr><td>Video uploaded to YouTube and linked on the submission form, as the rules require</td><td class="warn">Open</td></tr>
       <tr><td>No secrets, private data or concrete canary in the submission package</td><td class="ok">Swept</td></tr>
     </tbody>
   </table>
   <p class="note">
-    Open items are rule checks and disclosure checks, not missing evidence. The exact-name rejection
-    is verified locally and by automated test; the public-origin re-check is the remaining step.
+    The only open row is a host change, not missing evidence: the rules require a public YouTube
+    upload, while the finished master is currently on Vimeo. Devpost serves its rules behind an
+    interactive Cloudflare check that blocks automated reads, so the rules were read through a text
+    mirror on 23 November 2026 and should be re-checked in a signed-in browser at submission time.
   </p>
 </section>
 

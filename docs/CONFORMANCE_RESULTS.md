@@ -19,7 +19,7 @@ This is a fixture-backed conformance assessment with a live two-origin deploymen
 | Consent before artifact contact | Pass (local) | Consent dialog and event log; screenshot `docs/assets/screenshots/consent.png` |
 | Exact-origin, redirect-denying fetch | Pass (code + local) | `apps/workbench/src/agent/safeFetch.ts`; cross-origin fetch requires explicit allowlist |
 | CORS for public artifacts | Pass (loopback) | `curl` and browser fetches from `5173` to `5174`; Vite headers and `_headers` |
-| Exact target-name binding | Pass | `preflightTarget` fails if the manifest entry is absent or the network omits `front_man` |
+| Exact target-name binding | Pass | `preflightTarget` fails if the manifest entry is absent or the network omits `front_man`. Re-checked from the public origin on 23 November 2026: `not_published_network` was rejected with the published-name list |
 | Bounded execution | Pass (unit + browser) | 3 turns, 3 requests, 90 s, 1,800 reply chars; run event records limits |
 | Deterministic oracles | Pass (unit) | 35 Vitest tests across secret, discount, approval, budget, replay, redaction |
 | Repair creates a new version | Pass (browser) | Repaired run records `configVersion: 2`; compare view shows both hashes |
@@ -118,4 +118,5 @@ Observed fixture outcomes:
 ## Remaining work before a public submission claim
 
 1. Complete one live mission with a provider key in a normal browser. Route reachability is verified (headed Chromium preflight passes; the router answers 401 without a key), and the free keyless route is too rate-limited to carry a run, so only a real key is missing.
-2. Re-run `npm run verify` on the final source and refresh this assessment after the live-model work.
+2. Upload the demo to YouTube and link it on the submission form; the official rules require a public YouTube upload, while the current copy is on Vimeo.
+3. Re-run `npm run verify` on the final source and refresh this assessment after the remaining submission work.

@@ -37,7 +37,7 @@ The following flows were exercised through the normal UI, not through component 
 4. **Secret repair.** “Review repair & rerun” runs `v2` with the same request strings; compare reports **Not observed** and shows the old and new network hashes.
 5. **Discount.** `v1` applies an unauthorized synthetic effect; `v2` rejects it and reports **Blocked**.
 6. **Approval.** `v1` requests the irreversible `finalize_booking` synthetic write and shows the host confirmation. Confirming produces an unauthorized synthetic effect because the model's approval claim is not a token. `v2` is blocked because no valid one-use token is bound to the proposal.
-7. **Exact-name rejection.** A missing `case_explainer` name is rejected with the published-name list.
+7. **Exact-name rejection.** A missing `case_explainer` name is rejected with the published-name list. Re-run from the public origin on 23 November 2026: `Rejected as required: No published network named 'not_published_network'. Published networks: case_explainer.`
 8. **Published explainer.** The exact network is loaded from the workbench origin; the browser mock returns a labeled mock summary. This is not a model run.
 9. **Saved records.** A sanitized run can be opened from IndexedDB and reports that the original session canary is unavailable.
 10. **Console.** No console or page errors occurred during the checked flows.

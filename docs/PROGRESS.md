@@ -51,7 +51,8 @@ Re-checked 23 November 2026: both root documents, both manifests and `undercover
 - Public deployment is static GitHub Pages; the target does not execute the mission.
 - The 66.5-second Remotion cut is silent; the narrated public demo master is the submission candidate.
 - `docs/DEMO_NARRATION_TIMED.md` timings describe the 108.8-second silent cut, not the 119.4-second narrated master.
-- The submission checklist originally named YouTube; confirm the portal accepts a Vimeo link.
+- The official rules require the demo video to be publicly visible on YouTube; the current upload is on Vimeo, so a YouTube copy and form link are still needed.
+- Devpost pages sit behind an interactive Cloudflare check that blocks automated reads; rules were read through a text mirror on 23 November 2026.
 - The synthetic fixture is not a production target and does not certify any real system.
 
 ## Next concrete actions

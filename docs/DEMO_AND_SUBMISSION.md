@@ -71,13 +71,13 @@ Use `video/narration-script.md` for the timed lines. Keep the video strictly bel
 - [x] Public site and both artifact origins reachable anonymously over HTTPS.
 - [x] Manifest, network JSON, runtime and interface verified from the public URLs.
 - [x] CORS and cross-origin loading verified from the public origin.
-- [ ] Exact-name rejection verified from the public origin.
-- [ ] Live route verified, or the submission clearly states fixture-only evidence.
+- [x] Exact-name rejection verified from the public origin (23 November 2026): the published-network check returned `Rejected as required: No published network named 'not_published_network'. Published networks: case_explainer.`
+- [x] Live route not claimed, and the submission says so everywhere it matters: fixture-only evidence is labeled in the product, the conformance report and this checklist.
 - [x] Public video under two minutes with the entrant voice and genuine footage: <https://vimeo.com/1249258448> (119 s).
-- [ ] Confirm the portal accepts Vimeo or requires a YouTube link.
-- [ ] Screenshots and project description use the same claims as the conformance report.
+- [ ] Upload the video to YouTube and put the link on the submission form. The official rules require a public YouTube upload; Vimeo alone does not satisfy them.
+- [x] Screenshots and project description use the same claims as the conformance report (audited 23 November 2026 against the measured numbers).
 - [x] Source repository and reusable harness published: <https://github.com/yablokolabs/agent-undercover> (branch `main`; `gh-pages` still serves the site).
-- [ ] Current rules and deadline verified on the portal.
-- [ ] No secrets, private data or concrete canary in the submission package.
+- [x] Current rules and deadline verified (23 November 2026): submission period ends 11 January 2027, 8:00 am Pacific / 16:00 UTC, per the official rules.
+- [x] No secrets, private data or concrete canary in the submission package.
 
-The supplied deadline is 11 January 2027, 16:00 UTC / 21:30 IST. Verify it against the live portal before submission.
+The official rules also require the site URL, a conforming JSON network description, a browser runtime, an interface (and optional LLM/key configuration), a text description and at least one screenshot. The project satisfies those; the video host is the open item. Devpost serves its pages behind an interactive Cloudflare check that blocks automated reads, so the rules were read through a text mirror on 23 November 2026. Re-check them in a signed-in browser at submission time.

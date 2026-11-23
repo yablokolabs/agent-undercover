@@ -31,4 +31,4 @@ Browser CORS was tested on 17 and 23 November 2026. A direct OPTIONS request ret
 
 ## Deadline
 
-The supplied brief states 11 January 2027, 16:00 UTC / 21:30 IST. Verify the current portal before submission.
+The official rules read on 23 November 2026 state the submission period ends Monday, 11 January 2027 at 8:00 am Pacific Time, which is 16:00 UTC / 21:30 IST. The same rules require the demonstration video to be uploaded to and publicly visible on YouTube, under two minutes, with the Entrant explaining the project.
