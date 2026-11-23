@@ -38,6 +38,7 @@ Re-checked 23 November 2026: both root documents, both manifests and `undercover
 - `docs/EVALUATION.md` — commands and observed browser results.
 - `docs/assets/screenshots/` — public UI screenshots.
 - `docs/assets/agent-undercover-demo-public.mp4` — 119.4-second narrated public demo master.
+- `docs/assets/agent-undercover-submission.pdf` — 9-page submission dossier (1.3 MB), rebuilt by `npm run build:submission-pdf`.
 - `docs/assets/agent-undercover-demo-public-silent.mp4` — 108.8-second live-public silent cut.
 - `docs/DEMO_NARRATION.txt` and `docs/DEMO_NARRATION_TIMED.md` — first-person script, timestamps, pauses and audio setup.
 - `assets/architecture.svg` and `assets/architecture.png` — architecture.

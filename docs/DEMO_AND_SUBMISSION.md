@@ -14,6 +14,10 @@
 - Public CORS, anonymous artifact and cross-origin fixture checks passing against the live hostnames; see `docs/DEPLOYMENT.md`.
 - The narrated demo published publicly at <https://vimeo.com/1249258448> (1:59, entrant voice).
 
+## Submission dossier
+
+A 9-page PDF covering the product, the three missions, architecture, four screenshots, verification results, conformance summary, boundaries, reproduction steps and checklist status is at `docs/assets/agent-undercover-submission.pdf` (about 1.3 MB). Rebuild it with `npm run build:submission-pdf`; the source of the content is `scripts/build-submission-pdf.mjs`.
+
 ## Not ready
 
 - A verified live-model run.

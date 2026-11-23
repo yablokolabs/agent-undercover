@@ -28,6 +28,7 @@
     "assemble:public-demo": "node scripts/assemble-public-demo.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit && npm --workspace @undercover/workbench run typecheck && npm --workspace @undercover/demo-target run typecheck",
     "check:artifacts": "node scripts/check-artifacts.mjs",
+    "build:submission-pdf": "node scripts/build-submission-pdf.mjs",
     "sync:runtime": "node scripts/sync-runtime.mjs",
     "verify": "npm run typecheck && npm test && npm run check:artifacts && npm run build"
   },

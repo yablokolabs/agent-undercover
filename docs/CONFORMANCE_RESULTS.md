@@ -29,7 +29,7 @@ This is a fixture-backed conformance assessment with a live two-origin deploymen
 | BYOK isolation | Pass (code + tests) | Key only in session state and inference `Authorization`; public fetch strips credentials |
 | Live model proof | **Not complete** | Browser preflight to the default router returned HTTP 405; no live claim |
 | Public HTTPS deployment | **Pass** | Both custom domains resolve, present exact-hostname certificates, enforce HTTPS and serve the expected artifacts. Public CORS and cross-origin fixture run passed; see `docs/DEPLOYMENT.md` |
-| Entrant-voiced video | **Not complete** | A silent 66.5-second picture lock exists; the entrant's voice and final render are pending |
+| Entrant-voiced video | **Pass** | 119.4-second narrated master `docs/assets/agent-undercover-demo-public.mp4`, published at <https://vimeo.com/1249258448>; 1920×1080, 30 fps, 48 kHz stereo AAC, −17.9 LUFS integrated |
 | NANDA / A2A / MCP / WebMCP | **Not claimed** | Not implemented |
 
 ## Clause-to-evidence map
