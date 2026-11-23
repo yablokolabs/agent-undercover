@@ -111,7 +111,7 @@ const html = `<!doctype html>
   <div class="facts">
     <div><dt>Live workbench</dt><dd>agent-undercover.yablokolabs.com</dd></div>
     <div><dt>Synthetic target</dt><dd>undercover-target.yablokolabs.com</dd></div>
-    <div><dt>Demo video</dt><dd>vimeo.com/1249258448 &nbsp;(1:59, entrant voice)</dd></div>
+    <div><dt>Demo video</dt><dd>youtu.be/AfliF9OMVOo &nbsp;(1:59, entrant voice)</dd></div>
     <div><dt>Source</dt><dd>github.com/yablokolabs/agent-undercover &nbsp;(branch <span class="mono">main</span>)</dd></div>
     <div><dt>Author</dt><dd>Santhosh Balasa</dd></div>
     <div><dt>Date</dt><dd>23 November 2026</dd></div>
@@ -251,7 +251,8 @@ const html = `<!doctype html>
   </figure>
   <table>
     <tbody>
-      <tr><th style="width:30%">Public link</th><td>vimeo.com/1249258448</td></tr>
+      <tr><th style="width:30%">Public link</th><td>youtu.be/AfliF9OMVOo</td></tr>
+      <tr><th>Mirror</th><td>vimeo.com/1249258448</td></tr>
       <tr><th>Duration</th><td>119.4 s (1:59.4), under the two-minute limit</td></tr>
       <tr><th>Video</th><td>H.264, 1920×1080, 30 fps</td></tr>
       <tr><th>Audio</th><td>AAC, 48 kHz stereo, −17.9 LUFS integrated, −4.3 dBFS true peak</td></tr>
@@ -277,7 +278,7 @@ const html = `<!doctype html>
       <tr><td>Sanitized export</td><td class="ok">Pass</td><td>Export contains no canary, key or bearer form</td></tr>
       <tr><td>BYOK isolation</td><td class="ok">Pass</td><td>Key only in session state and the inference request header</td></tr>
       <tr><td>Public HTTPS deployment</td><td class="ok">Pass</td><td>Exact-hostname certificates, HTTPS enforced, CORS verified</td></tr>
-      <tr><td>Entrant-voiced video</td><td class="ok">Pass</td><td>119.4 s narrated master, public on Vimeo</td></tr>
+      <tr><td>Entrant-voiced video</td><td class="ok">Pass</td><td>119.4 s narrated master, public on YouTube</td></tr>
       <tr><td>Live model proof</td><td class="warn">Not complete</td><td>Route reachable from a headed browser; no provider key used</td></tr>
       <tr><td>NANDA / A2A / MCP / WebMCP</td><td class="warn">Not claimed</td><td>Not implemented</td></tr>
     </tbody>
@@ -327,15 +328,16 @@ npm run test:e2e       # browser run against the fixture mission</pre>
       <tr><td>Exact-name rejection verified from the public origin (23 Nov 2026)</td><td class="ok">Done</td></tr>
       <tr><td>Screenshots and description use the same claims as the conformance report (audited 23 Nov 2026)</td><td class="ok">Done</td></tr>
       <tr><td>Official rules and deadline verified (ends 11 Jan 2027, 16:00 UTC)</td><td class="ok">Done</td></tr>
-      <tr><td>Video uploaded to YouTube and linked on the submission form, as the rules require</td><td class="warn">Open</td></tr>
+      <tr><td>Video uploaded to YouTube and publicly visible, as the rules require (23 Nov 2026)</td><td class="ok">Done</td></tr>
       <tr><td>No secrets, private data or concrete canary in the submission package</td><td class="ok">Swept</td></tr>
     </tbody>
   </table>
   <p class="note">
-    The only open row is a host change, not missing evidence: the rules require a public YouTube
-    upload, while the finished master is currently on Vimeo. Devpost serves its rules behind an
-    interactive Cloudflare check that blocks automated reads, so the rules were read through a text
-    mirror on 23 November 2026 and should be re-checked in a signed-in browser at submission time.
+    Every row is closed. The submission video link is <span class="mono">https://youtu.be/AfliF9OMVOo</span>;
+    the remaining action is filling in and submitting the Devpost form. No live-model completion is
+    claimed. Devpost serves its rules behind an interactive Cloudflare check that blocks automated
+    reads, so the rules were read through a text mirror on 23 November 2026 and should be re-checked
+    in a signed-in browser at submission time.
   </p>
 </section>
 

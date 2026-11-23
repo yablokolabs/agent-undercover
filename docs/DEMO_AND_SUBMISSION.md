@@ -12,7 +12,7 @@
 - The **narrated** public demo master, 119.4 seconds including the entrant voice, at `docs/assets/agent-undercover-demo-public.mp4`.
 - 35 tests and 61 artifact checks passing.
 - Public CORS, anonymous artifact and cross-origin fixture checks passing against the live hostnames; see `docs/DEPLOYMENT.md`.
-- The narrated demo published publicly at <https://vimeo.com/1249258448> (1:59, entrant voice).
+- The narrated demo published publicly on YouTube at <https://youtu.be/AfliF9OMVOo> (1:59, entrant voice), with a Vimeo mirror at <https://vimeo.com/1249258448>.
 
 ## Submission dossier
 
@@ -21,7 +21,7 @@ A 9-page PDF covering the product, the three missions, architecture, four screen
 ## Not ready
 
 - A verified live-model run.
-- YouTube upload of the narrated master and the contest submission.
+- The Devpost form entry itself; everything it needs is listed below.
 
 ## Public live-demo cut
 
@@ -73,11 +73,11 @@ Use `video/narration-script.md` for the timed lines. Keep the video strictly bel
 - [x] CORS and cross-origin loading verified from the public origin.
 - [x] Exact-name rejection verified from the public origin (23 November 2026): the published-network check returned `Rejected as required: No published network named 'not_published_network'. Published networks: case_explainer.`
 - [x] Live route not claimed, and the submission says so everywhere it matters: fixture-only evidence is labeled in the product, the conformance report and this checklist.
-- [x] Public video under two minutes with the entrant voice and genuine footage: <https://vimeo.com/1249258448> (119 s).
-- [ ] Upload the video to YouTube and put the link on the submission form. The official rules require a public YouTube upload; Vimeo alone does not satisfy them.
+- [x] Public video under two minutes with the entrant voice and genuine footage: <https://youtu.be/AfliF9OMVOo> (119 s).
+- [x] Video uploaded to YouTube and publicly visible, ready to link on the submission form (23 November 2026): the signed-out watch page shows `agent undercover demo` on the channel `Santee`; a Vimeo copy remains as a mirror.
 - [x] Screenshots and project description use the same claims as the conformance report (audited 23 November 2026 against the measured numbers).
 - [x] Source repository and reusable harness published: <https://github.com/yablokolabs/agent-undercover> (branch `main`; `gh-pages` still serves the site).
 - [x] Current rules and deadline verified (23 November 2026): submission period ends 11 January 2027, 8:00 am Pacific / 16:00 UTC, per the official rules.
 - [x] No secrets, private data or concrete canary in the submission package.
 
-The official rules also require the site URL, a conforming JSON network description, a browser runtime, an interface (and optional LLM/key configuration), a text description and at least one screenshot. The project satisfies those; the video host is the open item. Devpost serves its pages behind an interactive Cloudflare check that blocks automated reads, so the rules were read through a text mirror on 23 November 2026. Re-check them in a signed-in browser at submission time.
+The official rules also require the site URL, a conforming JSON network description, a browser runtime, an interface (and optional LLM/key configuration), a text description and at least one screenshot. The project satisfies those; the only remaining step is filling in and submitting the form. Devpost serves its pages behind an interactive Cloudflare check that blocks automated reads, so the rules were read through a text mirror on 23 November 2026. Re-check them in a signed-in browser at submission time.

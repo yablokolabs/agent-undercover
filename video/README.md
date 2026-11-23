@@ -1,6 +1,6 @@
 # Demo video
 
-The narrated master is `../docs/assets/agent-undercover-demo-public.mp4` (119.4 s, source `public/agent-undercover-demo.mp4`, streams copied without re-encoding). It is the upload candidate.
+The narrated master is `../docs/assets/agent-undercover-demo-public.mp4` (119.4 s, source `public/agent-undercover-demo.mp4`, streams copied without re-encoding). It is published at <https://youtu.be/AfliF9OMVOo>, mirrored at <https://vimeo.com/1249258448>.
 
 There are two picture edits:
 

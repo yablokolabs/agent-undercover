@@ -21,7 +21,7 @@ The product uses the Open Agentic Web MVP Profile 0.2 and the reference browser 
 
 ## Status
 
-The local fixture build is complete and verified in a headless Chromium browser. Both origins are **live over trusted HTTPS**: GitHub Pages serves separate workbench and target sites, and a public cross-origin browser run completed with no console errors. Live-model evidence and the entrant-voiced video are **not complete**. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for public URLs and verification results, and [docs/CONFORMANCE_RESULTS.md](docs/CONFORMANCE_RESULTS.md) for clause-by-clause evidence.
+The local fixture build is complete and verified in a headless Chromium browser. Both origins are **live over trusted HTTPS**: GitHub Pages serves separate workbench and target sites, and a public cross-origin browser run completed with no console errors. Live-model evidence is **not complete**; the entrant-voiced demo is published on YouTube. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for public URLs and verification results, and [docs/CONFORMANCE_RESULTS.md](docs/CONFORMANCE_RESULTS.md) for clause-by-clause evidence.
 
 Public hosting is live at these two origins:
 
@@ -95,7 +95,7 @@ The public case-file screenshot hides the session-only exact-reply panel. Run ev
 
 ## Demo cut
 
-Watch the narrated demo on Vimeo: <https://vimeo.com/1249258448> (1:59, entrant voice).
+Watch the narrated demo on YouTube: <https://youtu.be/AfliF9OMVOo> (1:59, entrant voice). It is also mirrored on Vimeo at <https://vimeo.com/1249258448>.
 
 The **narrated master** is [docs/assets/agent-undercover-demo-public.mp4](docs/assets/agent-undercover-demo-public.mp4), 119.4 seconds (1:59.4) with the entrant's recorded voice, 1920×1080 at 30 fps, H.264 with 48 kHz stereo AAC.
 

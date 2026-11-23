@@ -37,7 +37,7 @@ The cut shows the confirmed disclosure, the reviewed repair and the v1/v2 compar
 
 First-person narration for Santhosh Balasa is in `docs/DEMO_NARRATION.txt`; `docs/DEMO_NARRATION_TIMED.md` maps every line to the footage, pauses and known boundaries.
 
-The **narrated master** is `docs/assets/agent-undercover-demo-public.mp4`: 119.4 seconds (1:59.4), 1920×1080, 30 fps, H.264 with 48 kHz stereo AAC, −17.9 LUFS integrated, −4.3 dBFS true peak. It came from `video/public/agent-undercover-demo.mp4` and the streams were copied without re-encoding, so the file is byte-identical (MD5 `b27173d827212caa24935b352555a7b4`). The voice runs continuously, including over the closing card that starts around 1:30. This is the upload candidate.
+The **narrated master** is `docs/assets/agent-undercover-demo-public.mp4`: 119.4 seconds (1:59.4), 1920×1080, 30 fps, H.264 with 48 kHz stereo AAC, −17.9 LUFS integrated, −4.3 dBFS true peak. It came from `video/public/agent-undercover-demo.mp4` and the streams were copied without re-encoding, so the file is byte-identical (MD5 `b27173d827212caa24935b352555a7b4`). The voice runs continuously, including over the closing card that starts around 1:30. It is the published submission master at <https://youtu.be/AfliF9OMVOo>, mirrored on Vimeo at <https://vimeo.com/1249258448>.
 
 To re-record instead, write the voice to `video/public/voiceover-public-demo.wav` (48 kHz, 24-bit PCM WAV) and run `node scripts/assemble-public-demo.mjs`.
 

@@ -4,7 +4,7 @@
 
 **Live workbench:** <https://agent-undercover.yablokolabs.com/>  
 **Synthetic target:** <https://undercover-target.yablokolabs.com/>  
-**Demo video:** <https://vimeo.com/1249258448> (1:59)  
+**Demo video:** <https://youtu.be/AfliF9OMVOo> (1:59)  
 **Source:** <https://github.com/yablokolabs/agent-undercover> (branch `main`)
 
 Connecting an agent to another website creates a question that a friendly demo rarely answers: what happens when the other agent is trying to bend the rules? Agent Undercover turns that question into a reproducible mission. The spy theme makes the boundary visible; the case file gives developers something they can fix and replay. The public demo runs in deterministic fixture mode; it does not claim a live-model result.
